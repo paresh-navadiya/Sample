@@ -81,6 +81,10 @@
 		2A7683AB1AADC57C00566C9B /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				2A7683D31AADDFAB00566C9B /* Files */,
+				2A7683D41AADDFAB00566C9B /* Libraries */,
+				2A7683D51AADDFAB00566C9B /* Other */,
+				2A7683D21AADDF9A00566C9B /* Classes */,
 				2A7683B01AADC57C00566C9B /* AppDelegate.h */,
 				2A7683B11AADC57C00566C9B /* AppDelegate.m */,
 				2A7683B31AADC57C00566C9B /* ViewController.h */,
@@ -117,6 +121,34 @@
 				2A7683C71AADC57C00566C9B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A7683D21AADDF9A00566C9B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2A7683D31AADDFAB00566C9B /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		2A7683D41AADDFAB00566C9B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		2A7683D51AADDFAB00566C9B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +446,7 @@
 				2A7683CE1AADC57C00566C9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A7683CF1AADC57C00566C9B /* Build configuration list for PBXNativeTarget "SampleTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +455,7 @@
 				2A7683D11AADC57C00566C9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
