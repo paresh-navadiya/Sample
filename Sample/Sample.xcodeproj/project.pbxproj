@@ -31,6 +31,7 @@
 		2A76840A1AADE0A700566C9B /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7684001AADE0A700566C9B /* UIProgressView+AFNetworking.m */; };
 		2A76840B1AADE0A700566C9B /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7684021AADE0A700566C9B /* UIRefreshControl+AFNetworking.m */; };
 		2A76840C1AADE0A700566C9B /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7684041AADE0A700566C9B /* UIWebView+AFNetworking.m */; };
+		2AF2CF651AAF042A00E17E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF2CF641AAF042A00E17E17 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		2A7684031AADE0A700566C9B /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		2A7684041AADE0A700566C9B /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		2A76840D1AADE1A100566C9B /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		2AF2CF641AAF042A00E17E17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF2CF651AAF042A00E17E17 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +120,7 @@
 		2A7683A01AADC57C00566C9B = {
 			isa = PBXGroup;
 			children = (
+				2AF2CF641AAF042A00E17E17 /* QuartzCore.framework */,
 				2A7683AB1AADC57C00566C9B /* Sample */,
 				2A7683C51AADC57C00566C9B /* SampleTests */,
 				2A7683AA1AADC57C00566C9B /* Products */,

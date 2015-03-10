@@ -10,4 +10,8 @@
 #define Sample_Constant_h
 
 
+//Third party libraries
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
+
 #endif
