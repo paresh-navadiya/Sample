@@ -10,7 +10,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-
 @implementation UIView (Additions)
 
 - (CGRect)getBorderLessFrame {
