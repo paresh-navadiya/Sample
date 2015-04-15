@@ -43,6 +43,8 @@
     //intially it will be NO we want to be also NO as navigation bar is visible
     isBarHidden = NO;
     
+    //Important Note
+    
 //    self.view.layer.borderWidth = 10;
 //    NSLog(@"%@ : %@",NSStringFromCGRect(self.view.frame) ,NSStringFromCGRect([self.view getBorderLessFrame]));
 //    self.view.layer.borderWidth = 0;
