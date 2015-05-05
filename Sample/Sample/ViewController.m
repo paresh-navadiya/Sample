@@ -48,7 +48,17 @@
 //    self.view.layer.borderWidth = 10;
 //    NSLog(@"%@ : %@",NSStringFromCGRect(self.view.frame) ,NSStringFromCGRect([self.view getBorderLessFrame]));
 //    self.view.layer.borderWidth = 0;
+    
+    JLPDFGenerator *objJLPDFGenerator = [JLPDFGenerator new];
+    [objJLPDFGenerator setupPDFDocumentNamed:@"test" withSize:kSizeA4Portrait];
+    
+    [objJLPDFGenerator beginPDFPage];
+    [objJLPDFGenerator addText:@"fewgepkggeepg wegewgewgewg wgwegwegweg wegwgwegweg wegewgweg wegewgewg wgwegweg gewgewg wegewgewg wegegewg wegwegewg wegwegeweg wegwegweg wegewgwegew gwegewgew wgwegewg wegwe gwegwegweg weg we gewgewgewgwegewgwe weg wgwe gew gwe g weg weg e g weg w eg we g we gew g we gwe g ewg  we gew  g weg we g  we gw e g weg  weg we g we g we g we g we g we g we g we g ewg we  gwe g we gew g we g we ew g we g ewg we g we gewg we  gwe gw ege  ew gew  g we gwe g we gew g weg we g ew g ew gwe g we g weg ew g ew gwe g w eg we gwe g we g e w g we gw gew g we g we gw e gew g  weg we gwe g weg" withFrame:CGRectMake(10, 10, kSizeA4Portrait.width, kSizeA4Portrait.height) withFont:[UIFont boldSystemFontOfSize:17.0f] withColor:[UIColor redColor] textAlignment:NSTextAlignmentLeft verticalAlignment:NSVerticalAlignmentTop];
+    
+    [objJLPDFGenerator finishPDF];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -67,6 +77,16 @@
         self.navigationController.navigationBar.hidden = NO;
     
     isBarHidden = !isBarHidden;
+}
+
+#pragma mark - UIWebViewD
+- (void)webViewDidFinishLoad:(UIWebView *)webView1
+{
+    NSLog(@"WebView Loaded");
+}
+- (void)webView:(UIWebView *)webView1 didFailLoadWithError:(NSError *)error
+{
+    NSLog(@"Error : %@",[error description]);
 }
 
 @end

@@ -16,6 +16,7 @@
 		2A3661811AAF1AA300F95F1C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A36617F1AAF1AA300F95F1C /* Interface.storyboard */; };
 		2A3661831AAF1AA300F95F1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A3661821AAF1AA300F95F1C /* Images.xcassets */; };
 		2A3661861AAF1AA300F95F1C /* Sample WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A3661691AAF1AA300F95F1C /* Sample WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2A6FF5D01AF91753002C9338 /* JLPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FF5CF1AF91753002C9338 /* JLPDFGenerator.m */; };
 		2A7683AF1AADC57C00566C9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7683AE1AADC57C00566C9B /* main.m */; };
 		2A7683B21AADC57C00566C9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7683B11AADC57C00566C9B /* AppDelegate.m */; };
 		2A7683B81AADC57C00566C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7683B61AADC57C00566C9B /* Main.storyboard */; };
@@ -100,6 +101,8 @@
 		2A36617E1AAF1AA300F95F1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A3661801AAF1AA300F95F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		2A3661821AAF1AA300F95F1C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2A6FF5CE1AF91753002C9338 /* JLPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPDFGenerator.h; sourceTree = "<group>"; };
+		2A6FF5CF1AF91753002C9338 /* JLPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPDFGenerator.m; sourceTree = "<group>"; };
 		2A7683A91AADC57C00566C9B /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A7683AD1AADC57C00566C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A7683AE1AADC57C00566C9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,6 +237,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2A6FF5CD1AF91753002C9338 /* JLPDFGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				2A6FF5CE1AF91753002C9338 /* JLPDFGenerator.h */,
+				2A6FF5CF1AF91753002C9338 /* JLPDFGenerator.m */,
+			);
+			path = JLPDFGenerator;
+			sourceTree = "<group>";
+		};
 		2A7683A01AADC57C00566C9B = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +272,7 @@
 		2A7683AB1AADC57C00566C9B /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				2A7683D31AADDFAB00566C9B /* Files */,
+				2ADE75401AE518750020BAD7 /* Files */,
 				2A7683D41AADDFAB00566C9B /* Libraries */,
 				2A7683D51AADDFAB00566C9B /* Other */,
 				2A7683D21AADDF9A00566C9B /* Classes */,
@@ -310,16 +322,10 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		2A7683D31AADDFAB00566C9B /* Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Files;
-			sourceTree = "<group>";
-		};
 		2A7683D41AADDFAB00566C9B /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2A6FF5CD1AF91753002C9338 /* JLPDFGenerator */,
 				2A83B9281AB055FF00BA4E55 /* Reachabilty */,
 				2A7683F31AADE0A700566C9B /* UIKit+AFNetworking */,
 				2A7683D61AADE08D00566C9B /* AFNetworking */,
@@ -391,6 +397,13 @@
 				2A83B92A1AB055FF00BA4E55 /* Reachability.m */,
 			);
 			path = Reachabilty;
+			sourceTree = "<group>";
+		};
+		2ADE75401AE518750020BAD7 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,6 +586,7 @@
 				2A76840A1AADE0A700566C9B /* UIProgressView+AFNetworking.m in Sources */,
 				2A7683ED1AADE08D00566C9B /* AFNetworkReachabilityManager.m in Sources */,
 				2A7683F11AADE08D00566C9B /* AFURLResponseSerialization.m in Sources */,
+				2A6FF5D01AF91753002C9338 /* JLPDFGenerator.m in Sources */,
 				2A7683EF1AADE08D00566C9B /* AFURLConnectionOperation.m in Sources */,
 				2A7684081AADE0A700566C9B /* UIButton+AFNetworking.m in Sources */,
 				2A7684061AADE0A700566C9B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -791,6 +805,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -801,6 +816,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

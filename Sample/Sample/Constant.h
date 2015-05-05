@@ -14,6 +14,7 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "Reachability.h"
+#import "JLPDFGenerator.h"
 
 #define kServerName @"https://my.eclinicalworks.com/eCRM" //Production
 //#define kServerName @"https://emgrbuild.ecwcloud.com/eCRM" //Build

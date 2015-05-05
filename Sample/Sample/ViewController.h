@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Constant.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIWebViewDelegate>
 {
+    __weak IBOutlet UIWebView *webView;
+    
     BOOL isBarHidden;
 }
 
