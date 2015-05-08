@@ -121,7 +121,8 @@
     return rect;
 }
 
--(CGRect)addPath:(CGPathRef)path withStrokeWidth:(float)strokeWidth withFillColor:(UIColor *)fillColor andStrokeColor:(UIColor *)strokeColor atPoint:(CGPoint)location {
+-(CGRect)addPath:(CGPathRef)path withStrokeWidth:(float)strokeWidth withFillColor:(UIColor *)fillColor andStrokeColor:(UIColor *)strokeColor atPoint:(CGPoint)location
+{
     
     if (strokeColor == nil) {
         strokeColor = [UIColor clearColor];
@@ -155,7 +156,8 @@
     return pathRect;
 }
 
--(CGRect)addCircleWithRadius:(float)radius withFillColor:(UIColor *)fillColor andStrokeColor:(UIColor *)strokeColor strokeWithWidth:(float)strokeWidth atCentre:(CGPoint)centre {
+-(CGRect)addCircleWithRadius:(float)radius withFillColor:(UIColor *)fillColor andStrokeColor:(UIColor *)strokeColor strokeWithWidth:(float)strokeWidth atCentre:(CGPoint)centre
+{
     
     if (strokeColor == nil) {
         strokeColor = [UIColor clearColor];
@@ -179,7 +181,8 @@
     return CGRectMake(centre.x - radius, centre.y - radius, radius*2, radius*2);
 }
 
--(CGRect)addRect:(CGRect)rect withFillColor:(UIColor *)fillColor andStrokeColor:(UIColor *)strokeColor strokeWithWidth:(float)strokeWidth {
+-(CGRect)addRect:(CGRect)rect withFillColor:(UIColor *)fillColor andStrokeColor:(UIColor *)strokeColor strokeWithWidth:(float)strokeWidth
+{
     
     if (strokeColor == nil) {
         strokeColor = [UIColor clearColor];
@@ -202,7 +205,8 @@
     return rect;
 }
 
--(void)finishPDF {
+-(void)finishPDF
+{
     UIGraphicsEndPDFContext();
 }
 

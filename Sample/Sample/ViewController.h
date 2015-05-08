@@ -11,7 +11,7 @@
 
 @interface ViewController : UIViewController <UIWebViewDelegate>
 {
-    __weak IBOutlet UIWebView *webView;
+    __weak IBOutlet UIImageView *imgView;
     
     BOOL isBarHidden;
 }

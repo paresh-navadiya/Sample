@@ -697,6 +697,7 @@
 		2A36618B1AAF1AA300F95F1C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sapankumar Parikh (K4UH95YJ53)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -705,6 +706,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "b51dcb60-bd34-4538-a6ce-e109e7123862";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -712,11 +714,13 @@
 		2A36618C1AAF1AA300F95F1C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sapankumar Parikh (K4UH95YJ53)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Sample WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "b51dcb60-bd34-4538-a6ce-e109e7123862";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

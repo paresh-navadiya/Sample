@@ -53,9 +53,14 @@
     [objJLPDFGenerator setupPDFDocumentNamed:@"test" withSize:kSizeA4Portrait];
     
     [objJLPDFGenerator beginPDFPage];
-    [objJLPDFGenerator addText:@"fewgepkggeepg wegewgewgewg wgwegwegweg wegwgwegweg wegewgweg wegewgewg wgwegweg gewgewg wegewgewg wegegewg wegwegewg wegwegeweg wegwegweg wegewgwegew gwegewgew wgwegewg wegwe gwegwegweg weg we gewgewgewgwegewgwe weg wgwe gew gwe g weg weg e g weg w eg we g we gew g we gwe g ewg  we gew  g weg we g  we gw e g weg  weg we g we g we g we g we g we g we g we g ewg we  gwe g we gew g we g we ew g we g ewg we g we gewg we  gwe gw ege  ew gew  g we gwe g we gew g weg we g ew g ew gwe g we g weg ew g ew gwe g w eg we gwe g we g e w g we gw gew g we g we gw e gew g  weg we gwe g weg" withFrame:CGRectMake(10, 10, kSizeA4Portrait.width, kSizeA4Portrait.height) withFont:[UIFont boldSystemFontOfSize:17.0f] withColor:[UIColor redColor] textAlignment:NSTextAlignmentLeft verticalAlignment:NSVerticalAlignmentTop];
+    [objJLPDFGenerator addText:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.  Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." withFrame:CGRectMake(10, 10, kSizeA4Portrait.width, kSizeA4Portrait.height) withFont:[UIFont boldSystemFontOfSize:17.0f] withColor:[UIColor redColor] textAlignment:NSTextAlignmentLeft verticalAlignment:NSVerticalAlignmentTop];
+    
+    [objJLPDFGenerator addLineFromPoint:CGPointMake(20, 300) toEndPoint:CGPointMake(3000, 300) withColor:[UIColor redColor] andWidth:1.0f];
     
     [objJLPDFGenerator finishPDF];
+    
+    
+    imgView.image = [UIImage imageNamed:@"bgorg1"];
 }
 
 
