@@ -9,12 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "Constant.h"
 
-@interface ViewController : UIViewController <UIWebViewDelegate>
+@interface ViewController : UIViewController <UIWebViewDelegate,UITextFieldDelegate>
 {
-    __weak IBOutlet UIImageView *imgView;
+    __weak IBOutlet UITableView *tblViewAddCustomer;
+    
+    PNCircleChart *circleChart;
     
     BOOL isBarHidden;
+    
+    NSMutableArray *mutArrAddCustomerData;
 }
 
+//tableviewcell subview methods
+-(IBAction)btnIsSubCustomerAction:(id)sender;
+-(IBAction)btnIsBillWithParentAction:(id)sender;
+
+-(IBAction)btnAddShippingAddressAction:(id)sender;
 @end
 

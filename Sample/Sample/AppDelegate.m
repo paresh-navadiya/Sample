@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
     return YES;
 }
 
@@ -47,81 +48,81 @@
     // Receives text input result from the WatchKit app extension.
     NSLog(@"User Info: %@", userInfo);
     
-    NSString *strUserID = [userInfo objectForKey:@"TextInput"];
-    
-    NSDate *now = [NSDate date];
-    //NSDate *dateBeforeADay = [now dateByAddingTimeInterval:-60*60*24];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
-    //NSDate *today1 = [calendar dateFromComponents:components];
-    NSString *strStartDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
-    
-    //NSString *strEndDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
-    
-    NSString *strURL = nil;
-    strURL = [NSString stringWithFormat:@"%@/rest/iPad/TimeTracker/getMeetingDataByResource?searchbyColName=resource&value=%@|%@|%@&orderby=StartTime&userid=%@&isrange=0",kServerName,strUserID,strStartDate,strStartDate,strUserID];
-    
-    strURL =[strURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSLog(@"%@",strURL);
-    NSURL *urlLink = [[NSURL alloc] initWithString:strURL];
-    
-    // Create the request.
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:urlLink cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    //[urlRequest setValue:@"1234567890" forHTTPHeaderField:@"Authorization"];
-    [urlRequest setValue:@"1" forHTTPHeaderField:@"confapp"];
-    
-    if ([self checkInternetConnection])
-    {
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
-        operation.responseSerializer = [AFHTTPResponseSerializer serializer];
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            
-            NSData *data = (NSData *)responseObject;
-            
-            NSError * parsedError = nil;
-            
-            NSDictionary *dictTTAndTask = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsedError];
-            
-            if (parsedError == nil)
-            {
-                
-                NSArray *arrTimeTracker = [dictTTAndTask objectForKey:@"eventlist"];
-                
-                NSArray *arrTasks = [dictTTAndTask objectForKey:@"tasklist"];
-                
-                NSMutableArray *mutArrTotal = [NSMutableArray array];
-                [mutArrTotal addObjectsFromArray:arrTimeTracker];
-                [mutArrTotal addObjectsFromArray:arrTasks];
-                
-                reply(@{@"message" : [NSNull null],@"data":mutArrTotal});
-            }
-            else
-            {
-                NSLog(@"error while parsing json data");
-                
-                reply(@{@"message" : [parsedError description],@"data":[NSNull null]});
-            }
-            
-            
-        } failure:^(AFHTTPRequestOperation *request, NSError *error){
-            
-            NSLog(@"Error:------>%@", [error description]);
-            
-            reply(@{@"message" : [error description],@"data":[NSNull null]});
-        }];
-        
-        [[NSOperationQueue mainQueue] addOperation:operation];
-    }
-    else
-    {
-        
-        //NSLog(@"No connection");
-        
-        reply(@{@"message" : @"No internet connection",@"data":[NSNull null]});
-    }
+//    NSString *strUserID = [userInfo objectForKey:@"TextInput"];
+//    
+//    NSDate *now = [NSDate date];
+//    //NSDate *dateBeforeADay = [now dateByAddingTimeInterval:-60*60*24];
+//    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
+//    //NSDate *today1 = [calendar dateFromComponents:components];
+//    NSString *strStartDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
+//    
+//    //NSString *strEndDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
+//    
+//    NSString *strURL = nil;
+//    strURL = [NSString stringWithFormat:@"%@/rest/iPad/TimeTracker/getMeetingDataByResource?searchbyColName=resource&value=%@|%@|%@&orderby=StartTime&userid=%@&isrange=0",kServerName,strUserID,strStartDate,strStartDate,strUserID];
+//    
+//    strURL =[strURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    NSLog(@"%@",strURL);
+//    NSURL *urlLink = [[NSURL alloc] initWithString:strURL];
+//    
+//    // Create the request.
+//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:urlLink cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+//    //[urlRequest setValue:@"1234567890" forHTTPHeaderField:@"Authorization"];
+//    [urlRequest setValue:@"1" forHTTPHeaderField:@"confapp"];
+//    
+//    if ([self checkInternetConnection])
+//    {
+//        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+//        operation.responseSerializer = [AFHTTPResponseSerializer serializer];
+//        
+//        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            
+//            
+//            NSData *data = (NSData *)responseObject;
+//            
+//            NSError * parsedError = nil;
+//            
+//            NSDictionary *dictTTAndTask = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsedError];
+//            
+//            if (parsedError == nil)
+//            {
+//                
+//                NSArray *arrTimeTracker = [dictTTAndTask objectForKey:@"eventlist"];
+//                
+//                NSArray *arrTasks = [dictTTAndTask objectForKey:@"tasklist"];
+//                
+//                NSMutableArray *mutArrTotal = [NSMutableArray array];
+//                [mutArrTotal addObjectsFromArray:arrTimeTracker];
+//                [mutArrTotal addObjectsFromArray:arrTasks];
+//                
+//                reply(@{@"message" : [NSNull null],@"data":mutArrTotal});
+//            }
+//            else
+//            {
+//                NSLog(@"error while parsing json data");
+//                
+//                reply(@{@"message" : [parsedError description],@"data":[NSNull null]});
+//            }
+//            
+//            
+//        } failure:^(AFHTTPRequestOperation *request, NSError *error){
+//            
+//            NSLog(@"Error:------>%@", [error description]);
+//            
+//            reply(@{@"message" : [error description],@"data":[NSNull null]});
+//        }];
+//        
+//        [[NSOperationQueue mainQueue] addOperation:operation];
+//    }
+//    else
+//    {
+//        
+//        //NSLog(@"No connection");
+//        
+//        reply(@{@"message" : @"No internet connection",@"data":[NSNull null]});
+//    }
     
     // Sends a confirmation message to the WatchKit app extension that the text input result was received.
     //reply(@{@"Confirmation" : @"Text was received."});
@@ -152,85 +153,131 @@
     
 }
 
-
+#pragma mark -
 #pragma mark - Apple Watch method 
 
 -(void)getTimeTackerAndTaskForMonth:(NSString *)strUserID
 {
-    NSDate *now = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
-    //NSDate *today1 = [calendar dateFromComponents:components];
-    NSString *strStartDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
-    
-    NSString *strEndDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
-    
-    NSString *strURL = nil;
-    strURL = [NSString stringWithFormat:@"%@/rest/iPad/TimeTracker/getMeetingDataByResource?searchbyColName=resource&value=%@|%@|%@&orderby=StartTime&userid=%@&isrange=1",kServerName,strUserID,strStartDate,strEndDate,strUserID];
-    
-    strURL =[strURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSLog(@"%@",strURL);
-    NSURL *urlLink = [[NSURL alloc] initWithString:strURL];
-    
-    // Create the request.
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:urlLink cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    //[urlRequest setValue:@"1234567890" forHTTPHeaderField:@"Authorization"];
-    [urlRequest setValue:@"1" forHTTPHeaderField:@"confapp"];
-    
-    if ([self checkInternetConnection])
-    {
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
-        operation.responseSerializer = [AFHTTPResponseSerializer serializer];
-        
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            
-            NSData *data = (NSData *)responseObject;
-            
-            NSError * parsedError = nil;
-            
-            NSDictionary *dictTTAndTask = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsedError];
-            
-            if (parsedError == nil)
-            {
-                
-                NSArray *arrTimeTracker = [dictTTAndTask objectForKey:@"eventlist"];
-                
-                NSArray *arrTasks = [dictTTAndTask objectForKey:@"tasklist"];
-                
-                NSMutableArray *mutArrTotal = [NSMutableArray array];
-                [mutArrTotal addObjectsFromArray:arrTimeTracker];
-                [mutArrTotal addObjectsFromArray:arrTasks];
-                
-                //reply(@{@"message" : [NSNull null],@"data":mutArrTotal});
-            }
-            else
-            {
-                NSLog(@"error while parsing json data");
-                
-                //reply(@{@"message" : [parsedError description],@"data":[NSNull null]});
-            }
-            
-            
-        } failure:^(AFHTTPRequestOperation *request, NSError *error){
-            
-            NSLog(@"Error:------>%@", [error description]);
-            
-            //reply(@{@"message" : [error description],@"data":[NSNull null]});
-        }];
-        
-        [[NSOperationQueue mainQueue] addOperation:operation];
-    }
-    else
-    {
-        
-        NSLog(@"No internet connection");
-        
-        //reply(@{@"message" : @"No internet connection",@"data":[NSNull null]});
-    }
+//    NSDate *now = [NSDate date];
+//    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
+//    //NSDate *today1 = [calendar dateFromComponents:components];
+//    NSString *strStartDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
+//    
+//    NSString *strEndDate = [NSString stringWithFormat:@"%ld-%ld-%ld",(long)components.year,(long)components.month,(long)components.day];
+//    
+//    NSString *strURL = nil;
+//    strURL = [NSString stringWithFormat:@"%@/rest/iPad/TimeTracker/getMeetingDataByResource?searchbyColName=resource&value=%@|%@|%@&orderby=StartTime&userid=%@&isrange=1",kServerName,strUserID,strStartDate,strEndDate,strUserID];
+//    
+//    strURL =[strURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    NSLog(@"%@",strURL);
+//    NSURL *urlLink = [[NSURL alloc] initWithString:strURL];
+//    
+//    // Create the request.
+//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:urlLink cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+//    //[urlRequest setValue:@"1234567890" forHTTPHeaderField:@"Authorization"];
+//    [urlRequest setValue:@"1" forHTTPHeaderField:@"confapp"];
+//    
+//    if ([self checkInternetConnection])
+//    {
+//        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+//        operation.responseSerializer = [AFHTTPResponseSerializer serializer];
+//        
+//        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            
+//            
+//            NSData *data = (NSData *)responseObject;
+//            
+//            NSError * parsedError = nil;
+//            
+//            NSDictionary *dictTTAndTask = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsedError];
+//            
+//            if (parsedError == nil)
+//            {
+//                
+//                NSArray *arrTimeTracker = [dictTTAndTask objectForKey:@"eventlist"];
+//                
+//                NSArray *arrTasks = [dictTTAndTask objectForKey:@"tasklist"];
+//                
+//                NSMutableArray *mutArrTotal = [NSMutableArray array];
+//                [mutArrTotal addObjectsFromArray:arrTimeTracker];
+//                [mutArrTotal addObjectsFromArray:arrTasks];
+//                
+//                //reply(@{@"message" : [NSNull null],@"data":mutArrTotal});
+//            }
+//            else
+//            {
+//                NSLog(@"error while parsing json data");
+//                
+//                //reply(@{@"message" : [parsedError description],@"data":[NSNull null]});
+//            }
+//            
+//            
+//        } failure:^(AFHTTPRequestOperation *request, NSError *error){
+//            
+//            NSLog(@"Error:------>%@", [error description]);
+//            
+//            //reply(@{@"message" : [error description],@"data":[NSNull null]});
+//        }];
+//        
+//        [[NSOperationQueue mainQueue] addOperation:operation];
+//    }
+//    else
+//    {
+//        
+//        NSLog(@"No internet connection");
+//        
+//        //reply(@{@"message" : @"No internet connection",@"data":[NSNull null]});
+//    }
     
 }
+
+
+#pragma mark - 
+#pragma mark -  Color Hex Method
+
+-(UIColor *)colorWithHexString:(NSString *)hexString
+{
+    
+    if ([hexString length] != 6) {
+        return nil;
+    }
+    
+    // Brutal and not-very elegant test for non hex-numeric characters
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^a-fA-F|0-9]" options:0 error:NULL];
+    NSUInteger match = [regex numberOfMatchesInString:hexString options:NSMatchingReportCompletion range:NSMakeRange(0, [hexString length])];
+    
+    if (match != 0) {
+        return nil;
+    }
+    
+    NSRange rRange = NSMakeRange(0, 2);
+    NSString *rComponent = [hexString substringWithRange:rRange];
+    NSUInteger rVal = 0;
+    NSScanner *rScanner = [NSScanner scannerWithString:rComponent];
+    [rScanner scanHexInt:(unsigned *)&rVal];
+    float rRetVal = (float)rVal / 254;
+    
+    
+    NSRange gRange = NSMakeRange(2, 2);
+    NSString *gComponent = [hexString substringWithRange:gRange];
+    NSUInteger gVal = 0;
+    NSScanner *gScanner = [NSScanner scannerWithString:gComponent];
+    [gScanner scanHexInt:(unsigned *)&gVal];
+    float gRetVal = (float)gVal / 254;
+    
+    NSRange bRange = NSMakeRange(4, 2);
+    NSString *bComponent = [hexString substringWithRange:bRange];
+    NSUInteger bVal = 0;
+    NSScanner *bScanner = [NSScanner scannerWithString:bComponent];
+    [bScanner scanHexInt:(unsigned *)&bVal];
+    float bRetVal = (float)bVal / 254;
+    
+    return [UIColor colorWithRed:rRetVal green:gRetVal blue:bRetVal alpha:1.0f];
+    
+}
+
 
 
 @end

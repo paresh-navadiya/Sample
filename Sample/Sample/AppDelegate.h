@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+-(UIColor *)colorWithHexString:(NSString *)hexString;
 
+-(BOOL)checkInternetConnection;
 @end
 
