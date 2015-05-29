@@ -11,24 +11,9 @@
 
 @interface ViewController : UIViewController <UIWebViewDelegate,UITextFieldDelegate>
 {
-    __weak IBOutlet UITableView *tblViewAddCustomer;
+    __weak IBOutlet UITableView *tblViewList;
     
-    PNCircleChart *circleChart;
-    //
-    VAProgressCircle *progressChart;
-    int circleProgress;
-    NSTimer *randomTimer;
-    
-    //
-    BOOL isBarHidden;
-    
-    NSMutableArray *mutArrAddCustomerData;
+    NSMutableArray *mutArrData;
 }
-
-//tableviewcell subview methods
--(IBAction)btnIsSubCustomerAction:(id)sender;
--(IBAction)btnIsBillWithParentAction:(id)sender;
-
--(IBAction)btnAddShippingAddressAction:(id)sender;
 @end
 

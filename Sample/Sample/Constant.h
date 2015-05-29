@@ -13,6 +13,13 @@
 #import "AppDelegate.h"
 //#define appDelegate (AppDelegate *)[[UIApplication sharedApplication] delegate]
 
+//Classess
+#import "FormVC.h"
+#import "CircleChartVC.h"
+#import "CreatePDFVC.h"
+#import "HTTPRequestVC.h"
+
+
 //Third party libraries
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
