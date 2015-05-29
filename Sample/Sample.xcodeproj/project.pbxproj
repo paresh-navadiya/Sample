@@ -34,8 +34,11 @@
 		2A83B92B1AB055FF00BA4E55 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A83B92A1AB055FF00BA4E55 /* Reachability.m */; };
 		2A8F2C161B008E7600983DC8 /* PNCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F2C131B008E7600983DC8 /* PNCircleChart.m */; };
 		2AB0FCCB1B0DB76900BFDC7B /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0FCCA1B0DB76900BFDC7B /* UICountingLabel.m */; };
-		2AB0FCCF1B0DEE7500BFDC7B /* ECWNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0FCCE1B0DEE7500BFDC7B /* ECWNetworkingHelper.m */; };
-		2AB0FCD21B0DEEC300BFDC7B /* YRActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0FCD11B0DEEC300BFDC7B /* YRActivityIndicator.m */; };
+		2ABED9421B18508100D1513F /* UIProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABED93F1B18508100D1513F /* UIProgressLabel.m */; };
+		2ABED9431B18508100D1513F /* VAProgressCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABED9411B18508100D1513F /* VAProgressCircle.m */; };
+		2ABED9541B18839500D1513F /* ISHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABED94F1B18839500D1513F /* ISHTTPOperation.m */; };
+		2ABED9551B18839500D1513F /* ISHTTPOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABED9511B18839500D1513F /* ISHTTPOperationQueue.m */; };
+		2ABED9561B18839500D1513F /* NSOperationQueue+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABED9531B18839500D1513F /* NSOperationQueue+HTTP.m */; };
 		2AF2CF651AAF042A00E17E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF2CF641AAF042A00E17E17 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,10 +111,16 @@
 		2A8F2C131B008E7600983DC8 /* PNCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNCircleChart.m; sourceTree = "<group>"; };
 		2AB0FCC91B0DB76900BFDC7B /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		2AB0FCCA1B0DB76900BFDC7B /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
-		2AB0FCCD1B0DEE7500BFDC7B /* ECWNetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECWNetworkingHelper.h; sourceTree = "<group>"; };
-		2AB0FCCE1B0DEE7500BFDC7B /* ECWNetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECWNetworkingHelper.m; sourceTree = "<group>"; };
-		2AB0FCD01B0DEEC300BFDC7B /* YRActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRActivityIndicator.h; sourceTree = "<group>"; };
-		2AB0FCD11B0DEEC300BFDC7B /* YRActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRActivityIndicator.m; sourceTree = "<group>"; };
+		2ABED93E1B18508100D1513F /* UIProgressLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIProgressLabel.h; sourceTree = "<group>"; };
+		2ABED93F1B18508100D1513F /* UIProgressLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIProgressLabel.m; sourceTree = "<group>"; };
+		2ABED9401B18508100D1513F /* VAProgressCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAProgressCircle.h; sourceTree = "<group>"; };
+		2ABED9411B18508100D1513F /* VAProgressCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAProgressCircle.m; sourceTree = "<group>"; };
+		2ABED94E1B18839500D1513F /* ISHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHTTPOperation.h; sourceTree = "<group>"; };
+		2ABED94F1B18839500D1513F /* ISHTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHTTPOperation.m; sourceTree = "<group>"; };
+		2ABED9501B18839500D1513F /* ISHTTPOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHTTPOperationQueue.h; sourceTree = "<group>"; };
+		2ABED9511B18839500D1513F /* ISHTTPOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHTTPOperationQueue.m; sourceTree = "<group>"; };
+		2ABED9521B18839500D1513F /* NSOperationQueue+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+HTTP.h"; sourceTree = "<group>"; };
+		2ABED9531B18839500D1513F /* NSOperationQueue+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+HTTP.m"; sourceTree = "<group>"; };
 		2AF2CF641AAF042A00E17E17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -192,7 +201,8 @@
 		2A7683D41AADDFAB00566C9B /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				2AB0FCCC1B0DEE7500BFDC7B /* ECWNetworkingHelper. */,
+				2ABED94D1B18839500D1513F /* ISHTTPOperation */,
+				2ABED93D1B18508100D1513F /* VAProgressCircle */,
 				2AB0FCC81B0DB76900BFDC7B /* UICountingLabel */,
 				2A8F2C111B008E7600983DC8 /* PNCircleChart */,
 				2A6FF5CD1AF91753002C9338 /* JLPDFGenerator */,
@@ -287,15 +297,28 @@
 			path = UICountingLabel;
 			sourceTree = "<group>";
 		};
-		2AB0FCCC1B0DEE7500BFDC7B /* ECWNetworkingHelper. */ = {
+		2ABED93D1B18508100D1513F /* VAProgressCircle */ = {
 			isa = PBXGroup;
 			children = (
-				2AB0FCD01B0DEEC300BFDC7B /* YRActivityIndicator.h */,
-				2AB0FCD11B0DEEC300BFDC7B /* YRActivityIndicator.m */,
-				2AB0FCCD1B0DEE7500BFDC7B /* ECWNetworkingHelper.h */,
-				2AB0FCCE1B0DEE7500BFDC7B /* ECWNetworkingHelper.m */,
+				2ABED93E1B18508100D1513F /* UIProgressLabel.h */,
+				2ABED93F1B18508100D1513F /* UIProgressLabel.m */,
+				2ABED9401B18508100D1513F /* VAProgressCircle.h */,
+				2ABED9411B18508100D1513F /* VAProgressCircle.m */,
 			);
-			path = ECWNetworkingHelper.;
+			path = VAProgressCircle;
+			sourceTree = "<group>";
+		};
+		2ABED94D1B18839500D1513F /* ISHTTPOperation */ = {
+			isa = PBXGroup;
+			children = (
+				2ABED94E1B18839500D1513F /* ISHTTPOperation.h */,
+				2ABED94F1B18839500D1513F /* ISHTTPOperation.m */,
+				2ABED9501B18839500D1513F /* ISHTTPOperationQueue.h */,
+				2ABED9511B18839500D1513F /* ISHTTPOperationQueue.m */,
+				2ABED9521B18839500D1513F /* NSOperationQueue+HTTP.h */,
+				2ABED9531B18839500D1513F /* NSOperationQueue+HTTP.m */,
+			);
+			path = ISHTTPOperation;
 			sourceTree = "<group>";
 		};
 		2ADE75401AE518750020BAD7 /* Files */ = {
@@ -386,22 +409,25 @@
 				2A7683EF1AADE08D00566C9B /* AFURLConnectionOperation.m in Sources */,
 				2A7684081AADE0A700566C9B /* UIButton+AFNetworking.m in Sources */,
 				2A7684061AADE0A700566C9B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				2AB0FCCF1B0DEE7500BFDC7B /* ECWNetworkingHelper.m in Sources */,
+				2ABED9421B18508100D1513F /* UIProgressLabel.m in Sources */,
 				2A7683EE1AADE08D00566C9B /* AFSecurityPolicy.m in Sources */,
 				2A83B92B1AB055FF00BA4E55 /* Reachability.m in Sources */,
 				2A76840B1AADE0A700566C9B /* UIRefreshControl+AFNetworking.m in Sources */,
 				2A76840C1AADE0A700566C9B /* UIWebView+AFNetworking.m in Sources */,
 				2A8F2C161B008E7600983DC8 /* PNCircleChart.m in Sources */,
 				2A7683EC1AADE08D00566C9B /* AFHTTPSessionManager.m in Sources */,
+				2ABED9541B18839500D1513F /* ISHTTPOperation.m in Sources */,
 				2A7684071AADE0A700566C9B /* UIAlertView+AFNetworking.m in Sources */,
 				2AB0FCCB1B0DB76900BFDC7B /* UICountingLabel.m in Sources */,
 				2A3661641AAF1A5400F95F1C /* ViewController.m in Sources */,
 				2A7683F01AADE08D00566C9B /* AFURLRequestSerialization.m in Sources */,
 				2A7684051AADE0A700566C9B /* AFNetworkActivityIndicatorManager.m in Sources */,
+				2ABED9551B18839500D1513F /* ISHTTPOperationQueue.m in Sources */,
 				2A7683F21AADE08D00566C9B /* AFURLSessionManager.m in Sources */,
 				2A7683B21AADC57C00566C9B /* AppDelegate.m in Sources */,
 				2A7683AF1AADC57C00566C9B /* main.m in Sources */,
-				2AB0FCD21B0DEEC300BFDC7B /* YRActivityIndicator.m in Sources */,
+				2ABED9561B18839500D1513F /* NSOperationQueue+HTTP.m in Sources */,
+				2ABED9431B18508100D1513F /* VAProgressCircle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

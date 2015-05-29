@@ -22,6 +22,18 @@
 }
 @end
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+@implementation UITextField (custom)
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    return CGRectMake(bounds.origin.x + 10, bounds.origin.y,
+                      bounds.size.width - 10, bounds.size.height);
+}
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    return [self textRectForBounds:bounds];
+}
+@end
+#pragma clang diagnostic pop
 
 @interface ViewController ()
 
@@ -34,8 +46,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     //self.navigationController.navigationBar.hidden = YES;
-    
-    //Look at bottom of credit : https://github.com/hyperoslo/Form
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleDoubleTap:)];
     tapGesture.numberOfTapsRequired = 2;
@@ -60,27 +70,32 @@
 //    [objJLPDFGenerator addLineFromPoint:CGPointMake(20, 300) toEndPoint:CGPointMake(3000, 300) withColor:[UIColor redColor] andWidth:1.0f];
 //    [objJLPDFGenerator finishPDF];
 //    
-//    
-//    //create circle chart
-//    circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake((SCREEN_WIDTH/2.0)-100.0,(SCREEN_HEIGHT/2.0)-70.0,200.0,140.0) total:@100 current:@60 clockwise:YES];
-//        
-//    circleChart.backgroundColor = [UIColor clearColor];
-//    
-//    //1st option no stroke color but default color
-//    
-//    //2nd option add gradiant
-//    //[circleChart setStrokeColor:[UIColor clearColor]];
-//    //[circleChart setStrokeColorGradientStart:[appDelegate colorWithHexString:@"4dffaa"]];
-//    
-//    //3rd option no gradiant but custom color
-//    //[circleChart setStrokeColor:[appDelegate colorWithHexString:@"4dffaa"]];
-//    
-//    [circleChart strokeChart];
-//    
-//    [self.view addSubview:circleChart];
-//    
-//    [self performSelector:@selector(reloadCircleChart) withObject:nil afterDelay:3.0f];
+//
     
+    
+    
+    //create circle chart //(SCREEN_HEIGHT/2.0)-70.0
+    circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake((SCREEN_WIDTH/2.0)-100.0,90.0,200.0,140.0) total:@100 current:@60 clockwise:YES];
+        
+    circleChart.backgroundColor = [UIColor clearColor];
+    
+    //1st option no stroke color but default color
+    
+    //2nd option add gradiant
+    //[circleChart setStrokeColor:[UIColor clearColor]];
+    //[circleChart setStrokeColorGradientStart:[appDelegate colorWithHexString:@"4dffaa"]];
+    
+    //3rd option no gradiant but custom color
+    //[circleChart setStrokeColor:[appDelegate colorWithHexString:@"4dffaa"]];
+    
+    [circleChart strokeChart];
+    
+    [self.view addSubview:circleChart];
+    
+    [self performSelector:@selector(reloadCircleChart) withObject:nil afterDelay:3.0f];
+
+    //add VAProgressCircle
+    [self addChart];
     
 //    NSString *dataUrl = @"http://api.openweathermap.org/data/2.5/weather?q=London,uk";
 //    NSURL *url = [NSURL URLWithString:dataUrl];
@@ -109,22 +124,86 @@
 //    // 4	
 //    [downloadPhotoTask resume];
     
+    
+    //https://github.com/JV17/YoutubePlayer
+    
     tblViewAddCustomer.tableFooterView = [UIView new];
     
     mutArrAddCustomerData = [NSMutableArray array];
     
-    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell1",@"cellidentifier",@"",@"customername",@"",@"companyname",@"",@"contact",@"0",@"issubcustomer",@"",@"subcustomer",@"0",@"isbillwithparent",nil]];
+    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell1",@"cellidentifier",@"",@"header",@"",@"customername",@"",@"companyname",@"",@"contact",@"0",@"issubcustomer",@"",@"subcustomer",@"0",@"isbillwithparent",nil]];
     
-    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell2",@"cellidentifier",@"",@"phone",@"",@"mobile",@"",@"fax",@"0",@"email",nil]];
+    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell2",@"cellidentifier",@"",@"header",@"",@"phone",@"",@"mobile",@"",@"fax",@"0",@"email",nil]];
     
-    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell3",@"cellidentifier",@"",@"address1",@"",@"address2",@"",@"address3",@"",@"city",@"",@"region",@"",@"pincode",@"",@"country",@"0",@"addshippingaddress",@"0",@"copyshippingaddress",nil]];
+    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell3",@"cellidentifier",@"Billing Address",@"header",@"",@"address1",@"",@"address2",@"",@"address3",@"",@"city",@"",@"region",@"",@"pincode",@"",@"country",@"0",@"addshippingaddress",@"0",@"copyshippingaddress",nil]];
     
-    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell4",@"cellidentifier",@"",@"terms",nil]];
+    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell4",@"cellidentifier",@"",@"header",@"",@"terms",nil]];
     
-    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell5",@"cellidentifier",@"",@"otherdetails",nil]];
+    [mutArrAddCustomerData addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"cell5",@"cellidentifier",@"",@"header",@"",@"otherdetails",nil]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+#pragma mark - 
+#pragma mark -  Add VAProgressCircle
+- (void)addChart
+{
+    UIColor *lightGreen = [UIColor colorWithRed:77.0 / 255.0 green:186.0 / 255.0 blue:122.0 / 255.0 alpha:1.0f];
+    
+    progressChart = [[VAProgressCircle alloc] initWithFrame:CGRectMake(60, 300, 200, 200)];
+    [progressChart setColor:lightGreen withHighlightColor:lightGreen];
+    [progressChart setTransitionColor:lightGreen withHighlightTransitionColor:lightGreen];
+    progressChart.transitionType = VAProgressCircleColorTransitionTypeGradual;
+    [self.view addSubview:progressChart];
+    
+    randomTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(randomIncrement) userInfo:nil repeats:YES];
+}
+
+- (void)resetChart
+{
+    circleProgress = 0;
+    
+    if([randomTimer isValid])
+    {
+        [randomTimer invalidate];
+    }
+    
+    [progressChart removeFromSuperview];
+    progressChart = nil;
+    
+    [self addChart];
+}
+
+- (void)randomIncrement
+{
+    if(arc4random() % 2 == 1)
+    {
+        [self addProgress];
+    }
+}
+
+- (void)addProgress
+{
+    int randomIncrement = circleProgress + arc4random_uniform(101 - circleProgress) / 3;
+    
+    if(circleProgress != randomIncrement && randomIncrement > circleProgress)
+    {
+        circleProgress = randomIncrement;
+        [progressChart setProgress:circleProgress];
+    }
+    else
+    {
+        circleProgress++;
+        [progressChart setProgress:circleProgress];
+    }
+    
+    if (circleProgress == 100) {
+        NSLog(@"reset here");
+        
+        //[self resetChart];
+        [self performSelector:@selector(resetChart) withObject:nil afterDelay:4.0f];
+    }
 }
 
 -(void)dealloc
@@ -161,6 +240,52 @@
     
     isBarHidden = !isBarHidden;
 }
+
+#pragma mark - ISHTTPOperation Methods
+
+- (void)stopAllRequest
+{
+    [[ISHTTPOperationQueue defaultQueue] cancelAllOperations];
+}
+
+- (void)startRequest
+{
+    //initialize url that is going to be fetched.
+    NSURL *url = [NSURL URLWithString:@"http://www.w3schools.com/webservices/tempconvert.asmx/CelsiusToFahrenheit"];
+    
+    //initialize a request from url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[url standardizedURL]];
+    
+    //set http method
+    [request setHTTPMethod:@"POST"];
+    //initialize a post data
+    NSString *postData = [NSString stringWithFormat:@"celsius=104"];
+    //set request content type we MUST set this value.
+    
+    [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    //set post data of request
+    [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [ISHTTPOperation sendRequest:request handler:^(NSHTTPURLResponse *response, id object, NSError *error)
+     {
+         if (error) {
+             NSLog(@"error: %@", error);
+             return;
+             
+         }
+         
+         NSString *strData = [[NSString alloc]initWithData:(NSData *)object encoding:NSUTF8StringEncoding];
+         
+         
+         strData = [strData stringByReplacingOccurrencesOfString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>" withString:@""];
+         strData = [strData stringByReplacingOccurrencesOfString:@"<string xmlns=\"http://www.w3schools.com/webservices/\">" withString:@""];
+         strData = [strData stringByReplacingOccurrencesOfString:@"</string>" withString:@""];
+         NSLog(@"strData : %@",strData);
+        
+     }];
+}
+
 
 #pragma mark - UIWebViewD
 - (void)webViewDidFinishLoad:(UIWebView *)webView1
@@ -241,20 +366,34 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10.0f;
+    NSDictionary *dictData = [mutArrAddCustomerData objectAtIndex:section];
+    NSString *strHeader = [dictData objectForKey:@"header"];
+    if ([strHeader length]==0)
+        return 10.0f;
+    else
+        return 30.0f;
+
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    NSDictionary *dictData = [mutArrAddCustomerData objectAtIndex:section];
+    NSString *strHeader = [dictData objectForKey:@"header"];
+    
     UILabel *tempLabel=[[UILabel alloc]init];
     [tempLabel setFrame:CGRectMake(0,0,320,10)];
     tempLabel.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:0.1];;
     //tempLabel.shadowColor = [UIColor whiteColor];
     //tempLabel.shadowOffset = CGSizeMake(0,1);
-    tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
+    tempLabel.textColor = [UIColor blackColor]; //here you can change the text color of header.
     tempLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
-    //NSString *sectionName = [NSString stringWithFormat:@"   %@",[arrSponsorKeys objectAtIndex:section]];
-    //tempLabel.text=sectionName;
-
+    if ([strHeader length]==0)
+        tempLabel.text=@"";
+    else
+    {
+        NSString *strTitle = [NSString stringWithFormat:@"  %@",strHeader];
+        tempLabel.text=strTitle;
+    }
+    
     return tempLabel;
 }
 
@@ -273,9 +412,25 @@
     
     if (cell) {
         
+        UIImage *image = [UIImage imageNamed:@"txtfd_bg"];
+
         if (indexPath.section == 0)
         {
-            //
+            UITextField *txtFdCustName = (UITextField *)[cell viewWithTag:99];
+            if (txtFdCustName) {
+                txtFdCustName.background = image;
+            }
+            
+            UITextField *txtFdCompName = (UITextField *)[cell viewWithTag:100];
+            if (txtFdCompName) {
+                txtFdCompName.background = image;
+            }
+            
+            UITextField *txtFdSubCustName = (UITextField *)[cell viewWithTag:103];
+            if (txtFdSubCustName) {
+                txtFdSubCustName.background = image;
+            }
+            
             UIButton *btnIsSubCustomer = (UIButton *)[cell viewWithTag:102];
             NSString *strIsSubCustomer = [dictData objectForKey:@"issubcustomer"];
             if ([strIsSubCustomer isEqualToString:@"0"])
@@ -293,9 +448,117 @@
         }
         else if (indexPath.section == 1)
         {
+            UITextField *txtFdPhone = (UITextField *)[cell viewWithTag:99];
+            if (txtFdPhone) {
+                txtFdPhone.background = image;
+            }
             
+            UITextField *txtFdMobile = (UITextField *)[cell viewWithTag:100];
+            if (txtFdMobile) {
+                txtFdMobile.background = image;
+            }
+            
+            UITextField *txtFdFax = (UITextField *)[cell viewWithTag:101];
+            if (txtFdFax) {
+                txtFdFax.background = image;
+            }
+            
+            UITextField *txtFdEmail = (UITextField *)[cell viewWithTag:102];
+            if (txtFdEmail) {
+                txtFdEmail.background = image;
+            }
         }
-        
+        else if (indexPath.section == 2)
+        {
+            UITextField *txtFdAddress1 = (UITextField *)[cell viewWithTag:99];
+            if (txtFdAddress1) {
+                txtFdAddress1.background = image;
+            }
+            
+            UITextField *txtFdAddress2 = (UITextField *)[cell viewWithTag:100];
+            if (txtFdAddress2) {
+                txtFdAddress2.background = image;
+            }
+            
+            UITextField *txtFdAddress3 = (UITextField *)[cell viewWithTag:101];
+            if (txtFdAddress3) {
+                txtFdAddress3.background = image;
+            }
+            
+            UITextField *txtFdCity = (UITextField *)[cell viewWithTag:102];
+            if (txtFdCity) {
+                txtFdCity.background = image;
+            }
+            
+            UITextField *txtFdRegion = (UITextField *)[cell viewWithTag:103];
+            if (txtFdRegion) {
+                txtFdRegion.background = image;
+            }
+            
+            UITextField *txtFdPostal = (UITextField *)[cell viewWithTag:104];
+            if (txtFdPostal) {
+                txtFdPostal.background = image;
+            }
+            
+            UITextField *txtFdCountry = (UITextField *)[cell viewWithTag:105];
+            if (txtFdCountry) {
+                txtFdCountry.background = image;
+            }
+        }
+        else if (indexPath.section == 3)
+        {
+            id view  = [cell viewWithTag:99];
+            if ([view isKindOfClass:[UITextField class]])
+            {
+                UITextField *txtFdAddress1 = (UITextField *)view;
+                if (txtFdAddress1) {
+                    txtFdAddress1.background = image;
+                }
+                
+                UITextField *txtFdAddress2 = (UITextField *)[cell viewWithTag:100];
+                if (txtFdAddress2) {
+                    txtFdAddress2.background = image;
+                }
+                
+                UITextField *txtFdAddress3 = (UITextField *)[cell viewWithTag:101];
+                if (txtFdAddress3) {
+                    txtFdAddress3.background = image;
+                }
+                
+                UITextField *txtFdCity = (UITextField *)[cell viewWithTag:102];
+                if (txtFdCity) {
+                    txtFdCity.background = image;
+                }
+                
+                UITextField *txtFdRegion = (UITextField *)[cell viewWithTag:103];
+                if (txtFdRegion) {
+                    txtFdRegion.background = image;
+                }
+                
+                UITextField *txtFdPostal = (UITextField *)[cell viewWithTag:104];
+                if (txtFdPostal) {
+                    txtFdPostal.background = image;
+                }
+                
+                UITextField *txtFdCountry = (UITextField *)[cell viewWithTag:105];
+                if (txtFdCountry) {
+                    txtFdCountry.background = image;
+                }
+
+            }
+        }
+        else if (indexPath.section == 4)
+        {
+            id view  = [cell viewWithTag:99];
+            if ([view isKindOfClass:[UITextField class]])
+            {
+                UITextField *txtFdOtherDetails = (UITextField *)view;
+                if (txtFdOtherDetails) {
+                    txtFdOtherDetails.background = image;
+                }
+                
+            }
+        }
     }
     
     cell.clipsToBounds = YES;
@@ -378,20 +641,18 @@
         
         NSMutableDictionary *mutDictData = [[mutArrAddCustomerData objectAtIndex:2] mutableCopy];
         
-        NSString *strIsBillWithParent = [mutDictData objectForKey:@"addshippingaddress"];
-        if ([strIsBillWithParent isEqualToString:@"0"])
+        NSString *strIsAddShippingAddress = [mutDictData objectForKey:@"addshippingaddress"];
+        if ([strIsAddShippingAddress isEqualToString:@"0"])
         {
             [mutDictData setObject:@"1" forKey:@"addshippingaddress"];
             [mutArrAddCustomerData replaceObjectAtIndex:2 withObject:[mutDictData copy]];
-            
-            
-            
-            if (btnAddShipping) {
+            if (btnAddShipping)
+            {
                 [btnAddShipping setImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
                 [btnAddShipping setTitle:@"Copy billing to shipping" forState:UIControlStateNormal];
             }
             
-            NSDictionary *dictData = [NSDictionary dictionaryWithObjectsAndKeys:@"cell3",@"cellidentifier",@"",@"address1",@"",@"address2",@"",@"address3",@"",@"city",@"",@"region",@"",@"pincode",@"",@"country",nil];
+            NSDictionary *dictData = [NSDictionary dictionaryWithObjectsAndKeys:@"cell3",@"cellidentifier",@"Shipping Address",@"header",@"",@"address1",@"",@"address2",@"",@"address3",@"",@"city",@"",@"region",@"",@"pincode",@"",@"country",nil];
             [mutArrAddCustomerData insertObject:dictData atIndex:3];
             
              [tblViewAddCustomer insertSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationTop];
@@ -440,33 +701,26 @@
 #pragma mark -
 #pragma mark - UITextViewDelegate
 
-- (BOOL)textFieldShouldBeginEditing:(UITextView *)textField
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    textField.background = [UIImage imageNamed:@"txtfd_bg_sel"];
+    
     CGPoint txtFieldPosition = [textField convertPoint:CGPointZero toView:tblViewAddCustomer];
     
     NSIndexPath *indexPath = [tblViewAddCustomer indexPathForRowAtPoint:txtFieldPosition];
     
     if (indexPath)
     {
-        UITableViewCell *cell = [tblViewAddCustomer cellForRowAtIndexPath:indexPath];
-        if (cell)
-        {
-            UIImageView *imgView = (UIImageView*)[cell viewWithTag:98];
-            imgView.image = [UIImage imageNamed:@"txtfd_bg_sel"];
-        }
-        
-         [tblViewAddCustomer scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        [tblViewAddCustomer scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
     
     return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextView *)textField
+-(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    textField.background = [UIImage imageNamed:@"txtfd_bg"];
     
-}
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
     CGPoint txtFieldPosition = [textField convertPoint:CGPointZero toView:tblViewAddCustomer];
     NSIndexPath *indexPath = [tblViewAddCustomer indexPathForRowAtPoint:txtFieldPosition];
     
@@ -484,42 +738,25 @@
         
         [mutArrAddCustomerData replaceObjectAtIndex:indexPath.section withObject:[mutDictData copy]];
         
-        CGPoint txtFieldPosition = [textField convertPoint:CGPointZero toView:tblViewAddCustomer];
-        
-        NSIndexPath *indexPath = [tblViewAddCustomer indexPathForRowAtPoint:txtFieldPosition];
-        
-        if (indexPath)
-        {
-            UITableViewCell *cell = [tblViewAddCustomer cellForRowAtIndexPath:indexPath];
-            if (cell)
-            {
-                UIImageView *imgView = (UIImageView*)[cell viewWithTag:98];
-                imgView.image = [UIImage imageNamed:@"txtfd_bg"];
-            }
-            
-            [tblViewAddCustomer scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-        }
-
     }
-   
+    else
+    {
+        
+    }
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 {
     [textField resignFirstResponder];
     
     return YES;
 }
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     //NSString *strText = [textView.text stringByAppendingString:text];
     //NSLog(@"shouldChangeTextInRange : %@ || %@",text,strText);
     
     return YES;
-}
-- (void)textViewDidChange:(UITextView *)textView
-{
-    
 }
 
 #pragma mark -

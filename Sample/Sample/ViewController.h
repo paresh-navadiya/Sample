@@ -14,7 +14,12 @@
     __weak IBOutlet UITableView *tblViewAddCustomer;
     
     PNCircleChart *circleChart;
+    //
+    VAProgressCircle *progressChart;
+    int circleProgress;
+    NSTimer *randomTimer;
     
+    //
     BOOL isBarHidden;
     
     NSMutableArray *mutArrAddCustomerData;

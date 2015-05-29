@@ -16,9 +16,11 @@
 //Third party libraries
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "ISHTTPOperation.h"
 #import "Reachability.h"
 #import "JLPDFGenerator.h"
 #import "PNCircleChart.h"
+#import "VAProgressCircle.h"
 
 #define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT    ([UIScreen mainScreen].bounds.size.height)
